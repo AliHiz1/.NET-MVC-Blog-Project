@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<title>Admin Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@Scripts.Render("~/Scripts/jquery-1.7.1.min.js")
+@Scripts.Render("~/ckeditor/ckeditor.js")
+@Scripts.Render("~/ckeditor/ckfinder/ckfinder.js")
+@Scripts.Render("~/Scripts/jquery.validate.js")
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:10%">
+        <h3 class="w3-bar-item">Menüler</h3>
+        <a href="/Admin/Index/" class="w3-bar-item w3-button">Bloglar</a>
+        <a href="/Admin/YorumListesi/" class="w3-bar-item w3-button">Yorumlar</a>
+        <a href="/Admin/ContactListesi/" class="w3-bar-item w3-button">İletişim</a>
+        <a href="/Admin/HakkimizdaListesi/" class="w3-bar-item w3-button">Hakkımızda</a>
+        <a href="/Admin/EBultenListesi/" class="w3-bar-item w3-button">Aboneler</a>
+        <a href="/Default/Index/" class="w3-bar-item w3-button">Siteye Git</a>
+        <a href="/GirisYap/LogOut/" class="w3-bar-item w3-button">Çıkış Yap</a>
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:10%">
+
+        <div class="w3-container w3-teal" style="height: 10%;">
+            <h4>Admin Yönetim Paneli</h4>
+        </div>
+
+
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+
+    </div>
+
+</body>
+
+</html>

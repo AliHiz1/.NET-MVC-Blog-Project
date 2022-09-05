@@ -1,0 +1,25 @@
+﻿@using TravelTripProje.Models.Siniflar
+@model List<SubMail>
+@{
+    ViewBag.Title = "EbultenListesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Abone Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Mail Adresi</th>
+        <th style="width: 100px;">Sil</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.ID</td>
+    <td>@x.SubEMail</td>
+    <td><a href="/Admin/EBultenSil/@x.ID" class="btn btn-danger">Sil</a></td>
+</tr>
+    }
+</table>
+

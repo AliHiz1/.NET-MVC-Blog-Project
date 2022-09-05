@@ -1,0 +1,46 @@
+﻿@model TravelTripProje.Models.Siniflar.BlogYorum
+@using PagedList.Mvc
+@using PagedList
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/11/style-blog.css">
+<style>
+     .main-navigation .current-menu-item-2>a {
+        color: #e8554e;
+     }
+</style>
+<div class="site-content-area">
+    <main id="main" class="site-main">
+        <article id="articless" class="site-articles">
+            <header class="site-articles-header"><h2 class="site-articles-title">Blog</h2></header>
+            <div class="site-create-content">
+                <div style="height: 64px; " aria-hidden="true" class="site-last-spacer"></div>
+                <div class="site-last-wrapper">
+                    @foreach (var x in Model.Deger1)
+                    {
+                        <article class="site-last-wrapper-one">
+                            <div class="site-last-wrapper-article">
+                                <a href="/Blog/BlogDetay/@x.ID" rel="bookmark">
+                                    <img src="@x.BlogImage" alt="" style="margin-bottom: 20px; max-width:750px; max-height:430px;" />
+                                </a>
+                                <h2 class="site-last-wrapper-article-title">
+                                    <a href="/Blog/BlogDetay/@x.ID" rel="bookmark">@x.Baslik</a>
+                                </h2>
+                                <p>
+                                    @x.Aciklama
+                                    <a class="more-link" href="/Blog/BlogDetay/@x.ID">...Devamını Oku</a>
+                                </p>
+                                <div class="site-last-wrapper-article-meta">
+                                    <p>Yayınlanma Tarihi: @x.Tarih.ToString("dd.MM.yyyy")</p>
+                                </div>
+                            </div>
+                        </article>
+                    }
+                </div>
+        </article>
+    </main>
+</div>
+<div id="secondary" class="site-footer-widget-area" role="complementary"></div>

@@ -1,0 +1,37 @@
+﻿@using TravelTripProje.Models.Siniflar
+@model List<Blog>
+<div class="last-articles">
+    <div class="last-container">
+        <div class="article-grid">
+            <div class="article-grid-col">
+                <h3 style="font-size:30px;">Son Yazılar</h3>
+                <div class="articles">
+                    <div class="article-blocks">
+                        <article class="wrapper">
+                            @foreach (var x in Model)
+                            {
+                            <div class="article-wrapper">
+                                <h3 class="article-title">
+                                    <a href="/Blog/BlogDetay/@x.ID" rel="bookmark">@x.Baslik</a>
+                                </h3>
+                                <p>
+                                    <a class="article-image" href="/Blog/BlogDetay/@x.ID">
+                                        <img src="@x.BlogImage" style="max-width: 725px; max-height: 430px;" />
+                                    </a>
+                                <p class="article-desc" style="max-width:725px;">
+                                    @x.Aciklama
+                                </p>
+                                    <a class="more-link" href="/Blog/BlogDetay/@x.ID">...Devamını Oku</a>
+                                </p>
+                                <div class="article-meta" style="margin-bottom: 1.5em;">
+                                    <p>Yayınlanma Tarihi: @x.Tarih.ToString("dd.MM.yyyy")</p>
+                                </div>
+                            </div>
+                            }
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

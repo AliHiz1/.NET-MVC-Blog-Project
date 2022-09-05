@@ -1,0 +1,55 @@
+﻿@model TravelTripProje.Models.Siniflar.BlogYorum
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<!DOCTYPE HTML>
+<html>
+<body>
+    <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <style>
+        .main-navigation .current-menu-item-2 > a {
+            color: #e8554e;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="~/11/style-blog.css">
+    <div class="site-create-content">
+        <div class="site-last-wrapper">
+            @foreach (var x in Model.Deger1)
+            {
+                <article class="site-last-wrapper-one">
+                    <div class="site-last-wrapper-article">
+                        <header class="site-articles-header"><h2 class="site-articles-title">@x.Baslik
+                             </h2></header>
+                        <img src="@x.BlogImage" alt="" style="margin-bottom: 20px; max-width:750px; max-height:430px;" />
+                        <p>
+                            @Html.Raw(x.Aciklama) 
+                        </p>
+                        <div class="site-last-wrapper-article-meta">
+                            <p>Yayınlanma Tarihi: @x.Tarih.ToString("dd.MM.yyyy")</p>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+        <link href="~/web2/css/style.css" rel="stylesheet" type='text/css' />
+        @foreach (var y in Model.Deger2)
+        {
+            <ul class="comment-list">
+
+                <li class="comments">
+                    <div class="userimage" style="padding-right: 15px;flex: 1;">
+                        <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+                    </div>
+                    <div class="desc">
+                        <p><h1>@y.KullaniciAdi:</h1>@y.Yorum.</p>
+                    </div>
+                </li>
+            </ul>
+        }
+        @Html.Action("YorumYap", "Blog")
+    </div>
+</body>
+</html>
+
